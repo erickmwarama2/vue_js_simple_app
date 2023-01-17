@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@next"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+
+    <script>
+        var app = Vue.createApp({
+            template: "<counter />"
+        });
+
+        app.component("counter", {
+            template: "The counter is: {{count}}",
+
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            created() {
+                setInterval(() => {
+                    this.count++;
+                }, 2000);
+            }
+        });
+
+        app.mount("div#app");
+    </script>
+</html>
